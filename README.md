@@ -36,8 +36,9 @@ ls | wc -l
 # yes 56 samples, matched
 ```
 
-## Step 2. Rename the sample (`all.sample.csv`) to biological meaningful name (such as M60a-IgG) `all.sample.labelled.csv`
-- All downstream fq, bam, peak will based on this name. It will great benefit for further analysis.
+## Step 2. Rename the sample (`all.sample.csv`) to biological meaningful name (such as M60a-IgG-1) `all.sample.labelled.csv`
+- Naming method：`Treatment-Antibody-replicate`
+- All downstream fq, bam, peak will be based on this name. It will great benefit for further analysis.
 - Suggestion: go to R and modify the name, or you can edit it in Excel.
 
 ## Step 3. Run `run.1.qc.align.clean.sort.bed.bigwig.sh`

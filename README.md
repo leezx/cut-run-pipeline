@@ -62,7 +62,9 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 ## Step 4. Peak calling. Run ``
 - This script will call peaks using macs3
 
-## Step 5. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
+## Step 5. Check if all samples have reasonable output and pass QC.
+
+## Step 6. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
 ```
 # integrate all QC information for our samples
 multiqc .

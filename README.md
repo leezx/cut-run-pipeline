@@ -45,6 +45,29 @@ ls | wc -l
 - This script will read `all.sample.labelled.csv` per line
 - Process each fastq pairs, generate `bam frag bigwig`
 
+Parameters needed as input:
+```
+### parameter
+# refencen of human/mouse and Ecoli
+ref=/home/zz950/reference/bowtie2-ref/10x_GRCh38-2020-A/10x_GRCh38-2020-A
+ref_ecoli=/home/zz950/reference/bowtie2-ref/Ecoli/Ecoli
+cpu=12
+# for fastqc
+raw_fastq=/home/zz950/projects/cut_run/HDAC-b2/20230203_HT115_MERCK60_ROMIDEPSIN/softlinks
+# for bam rm Dup
+picard=/home/zz950/softwares/self_bin/picard.jar
+```
+
 ## Step 4. Run ``
 - This script will call peaks using macs3
+
+## What're the core output file?
+- bam (always too big, we will not keep it)
+- bigwig (good for peak visualization and diff analysis)
+- peak (diff analysis, annotation)
+
+## What fancy downstream analysis can be performed?
+- individual gene/peak visualizaiton among samples
+- gene set/signature heatmap (centered by TSS)
+- integrated with RNA-seq
 

@@ -16,6 +16,7 @@ wget http://opengene.org/fastp/fastp
 chmod a+x ./fastp
 pip install deeptools
 pip install macs3
+pip install multiqc # I love it!
 ```
 
 ## Step 1. Create a `all.sample.csv` file with sample name and paired absolute path of fastq files.

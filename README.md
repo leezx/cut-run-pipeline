@@ -63,6 +63,7 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 - This script will call peaks using macs3
 
 ## Step 5. Check if all samples have reasonable output and pass QC.
+- alignment rate for TF, hitone, IgG
 
 ## Step 6. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
 ```
@@ -78,7 +79,7 @@ mv HDAC.o2599325 HDAC.e2599325 log
 - peak (diff analysis, annotation)
 
 ## What fancy downstream analysis can be performed?
-- individual gene/peak visualizaiton among samples
+- individual gene/peak visualizaiton among samples (IGV)
 - gene set/signature heatmap (centered by TSS)
 - integrated with RNA-seq
 

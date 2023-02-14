@@ -37,11 +37,13 @@ ls | wc -l
 ```
 
 ## Step 2. Rename the sample (`all.sample.csv`) to biological meaningful name (such as M60a-IgG) `all.sample.labelled.csv`
-All downstream fq, bam, peak will based on this name. It will great benefit for further analysis.
-suggestion: go to R and modify the name, or you can edit it in Excel.
+- All downstream fq, bam, peak will based on this name. It will great benefit for further analysis.
+- Suggestion: go to R and modify the name, or you can edit it in Excel.
 
 ## Step 3. Run `run.1.qc.align.clean.sort.bed.bigwig.sh`
-process each fastq pairs, generate `bam frag bigwig`
+- This script will read `all.sample.labelled.csv` per line
+- Process each fastq pairs, generate `bam frag bigwig`
 
 ## Step 4. Run ``
+- This script will call peaks using macs3
 

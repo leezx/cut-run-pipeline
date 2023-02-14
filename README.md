@@ -1,7 +1,7 @@
 # Cut&Run pipeline
 A standard analytic pipeline for cut&run data
 
-## Step 0. ENV and softwares preparation, check by `step0.env.software.check.sh`.
+## Step 0. ENV and softwares preparation, check by `step.0.env.software.check.sh`.
 ```
 # use most stable python
 conda create -n cutrun python=3.8

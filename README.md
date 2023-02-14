@@ -66,6 +66,8 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 ```
 # integrate all QC information for our samples
 multiqc .
+# keep important log file
+mv HDAC.o2599325 HDAC.e2599325 log
 ```
 
 ## What're the core output file?

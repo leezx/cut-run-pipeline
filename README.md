@@ -58,8 +58,10 @@ raw_fastq=/home/zz950/projects/cut_run/HDAC-b2/20230203_HT115_MERCK60_ROMIDEPSIN
 picard=/home/zz950/softwares/self_bin/picard.jar
 ```
 
-## Step 4. Run ``
+## Step 4. Peak calling. Run ``
 - This script will call peaks using macs3
+
+## Step 5. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
 
 ## What're the core output file?
 - bam (always too big, we will not keep it)

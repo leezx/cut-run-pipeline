@@ -1,7 +1,7 @@
-# cut&run pipeline
-a standard analytic pipeline for cut&run data
+# Cut&Run pipeline
+A standard analytic pipeline for cut&run data
 
-# step 0. ENV and softwares preparation, check by `step0.env.software.check.sh`.
+## step 0. ENV and softwares preparation, check by `step0.env.software.check.sh`.
 ```
 # use most stable python
 conda create -n cutrun python=3.8
@@ -18,7 +18,7 @@ pip install deeptools
 pip install macs3
 ```
 
-# step 1. create a `all.sample.csv` file with sample name and paired absolute path of fastq files.
+## step 1. create a `all.sample.csv` file with sample name and paired absolute path of fastq files.
 ```
 D_G1_CKDL220025889-1A_HCY2GDSX5_L1,/home/da528/ATAC_Analysis/cut_run/zhixin_analysis/HDAC/fastq/D_G1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz,/home/da528/ATAC_Analysis/cut_run/zhixin_analysis/HDAC/fastq/D_G1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
 ```
@@ -36,12 +36,12 @@ ls | wc -l
 # yes 56 samples, matched
 ```
 
-# step 2. rename the sample (`all.sample.csv`) to biological meaningful name (such as M60a-IgG) `all.sample.labelled.csv`
+## step 2. rename the sample (`all.sample.csv`) to biological meaningful name (such as M60a-IgG) `all.sample.labelled.csv`
 All downstream fq, bam, peak will based on this name. It will great benefit for further analysis.
 suggestion: go to R and modify the name, or you can edit it in Excel.
 
-# step 3. Run `run.1.qc.align.clean.sort.bed.bigwig.sh`
+## step 3. Run `run.1.qc.align.clean.sort.bed.bigwig.sh`
 process each fastq pairs, generate `bam frag bigwig`
 
-# step 4. Run ``
+## step 4. Run ``
 

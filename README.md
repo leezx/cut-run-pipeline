@@ -50,7 +50,7 @@ ls | wc -l
 - All downstream fq, bam, peak will be based on this name. It will great benefit for further analysis.
 - Suggestion: go to R and modify the name, or you can edit it in Excel.
 
-## Step 3. Run `run.1.qc.clean.align.rmDup.sort.Mapped.bam.bigwig.sh`
+## Step 3. Run `run.1.qc.clean.align.rmDup.sort.Mapped.bam.bigwig.sh` [~30 mins per sample]
 - This script will read `all.sample.labelled.csv` per line
 - Process each fastq pairs, generate `bam frag bigwig`
 
@@ -67,13 +67,17 @@ raw_fastq=/home/zz950/projects/cut_run/HDAC-b2/20230203_HT115_MERCK60_ROMIDEPSIN
 picard=/home/zz950/softwares/self_bin/picard.jar
 ```
 
-## Step 4. Peak calling. Run ``
+## Step 4. Bam to bed. Run `run.2.1.bam.to.frag.bed.sh` [~1 min per sample]
+
+## Step 5. Normalization library size by spike-in. Run `run.2.2.spikeIn.normalize.bigwig.sh` [~1 min per sample]
+
+## Step 6. Peak calling. Run `run.3.peak.calling.sh` [~1 min per sample]
 - This script will call peaks using macs3
 
-## Step 5. Check if all samples have reasonable output and pass QC.
+## Step 7. Check if all samples have reasonable output and pass QC.
 - alignment rate for TF, hitone, IgG
 
-## Step 6. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
+## Step 8. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
 ```
 # integrate all QC information for our samples
 multiqc .

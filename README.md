@@ -19,6 +19,14 @@ pip install macs3
 pip install multiqc # I love it!
 ```
 
+## Step 0. Check the fastq files.
+```
+# some fastq files may be broken during data transfering, and lead to the break of the pipeline
+# should check them before running the pipeline, some good sequencer may provide MD5 files
+cat CR*/MD5.txt > ../softlinks/MD5.txt
+md5sum -c MD5.txt
+```
+
 ## Step 1. Create a `all.sample.csv` file with sample name and paired absolute path of fastq files.
 ```
 D_G1_CKDL220025889-1A_HCY2GDSX5_L1,/home/da528/ATAC_Analysis/cut_run/zhixin_analysis/HDAC/fastq/D_G1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz,/home/da528/ATAC_Analysis/cut_run/zhixin_analysis/HDAC/fastq/D_G1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
@@ -42,7 +50,7 @@ ls | wc -l
 - All downstream fq, bam, peak will be based on this name. It will great benefit for further analysis.
 - Suggestion: go to R and modify the name, or you can edit it in Excel.
 
-## Step 3. Run `run.1.qc.align.clean.sort.bed.bigwig.sh`
+## Step 3. Run `run.1.qc.clean.align.rmDup.sort.Mapped.bam.bigwig.sh`
 - This script will read `all.sample.labelled.csv` per line
 - Process each fastq pairs, generate `bam frag bigwig`
 

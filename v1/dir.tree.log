@@ -1,0 +1,928 @@
+.
+├── 0.env.software.dir.check.sh
+├── 1.qc.align.clean.sort.bed.bigwig.sh
+├── 2.spikeIn.normalize.bigwig.frag.bed.sh
+├── 3.call.peak.sh
+├── 9.clean.big.intermediate.files.sh
+├── all.sample.csv
+├── all.sample.labelled.csv
+├── bam
+│   ├── DMSO_HDAC1_1_fragmentLen.txt
+│   ├── DMSO_HDAC1_1.Map2GenomeStat.xls
+│   ├── DMSO_HDAC1_1_picard.dupMark.txt
+│   ├── DMSO_HDAC1_1_picard.rmDup.txt
+│   ├── DMSO_HDAC1_1.sorted.mapped.bam
+│   ├── DMSO_HDAC1_1.sorted.mapped.bam.bai
+│   ├── DMSO_HDAC1_2_fragmentLen.txt
+│   ├── DMSO_HDAC1_2.Map2GenomeStat.xls
+│   ├── DMSO_HDAC1_2_picard.dupMark.txt
+│   ├── DMSO_HDAC1_2_picard.rmDup.txt
+│   ├── DMSO_HDAC1_2.sorted.mapped.bam
+│   ├── DMSO_HDAC1_2.sorted.mapped.bam.bai
+│   ├── DMSO_HDAC2_1_fragmentLen.txt
+│   ├── DMSO_HDAC2_1.Map2GenomeStat.xls
+│   ├── DMSO_HDAC2_1_picard.dupMark.txt
+│   ├── DMSO_HDAC2_1_picard.rmDup.txt
+│   ├── DMSO_HDAC2_1.sorted.mapped.bam
+│   ├── DMSO_HDAC2_1.sorted.mapped.bam.bai
+│   ├── DMSO_HDAC2_2_fragmentLen.txt
+│   ├── DMSO_HDAC2_2.Map2GenomeStat.xls
+│   ├── DMSO_HDAC2_2_picard.dupMark.txt
+│   ├── DMSO_HDAC2_2_picard.rmDup.txt
+│   ├── DMSO_HDAC2_2.sorted.mapped.bam
+│   ├── DMSO_HDAC2_2.sorted.mapped.bam.bai
+│   ├── DMSO_IgG_1_fragmentLen.txt
+│   ├── DMSO_IgG_1.Map2GenomeStat.xls
+│   ├── DMSO_IgG_1_picard.dupMark.txt
+│   ├── DMSO_IgG_1_picard.rmDup.txt
+│   ├── DMSO_IgG_1.sorted.mapped.bam
+│   ├── DMSO_IgG_1.sorted.mapped.bam.bai
+│   ├── DMSO_IgG_2_fragmentLen.txt
+│   ├── DMSO_IgG_2.Map2GenomeStat.xls
+│   ├── DMSO_IgG_2_picard.dupMark.txt
+│   ├── DMSO_IgG_2_picard.rmDup.txt
+│   ├── DMSO_IgG_2.sorted.mapped.bam
+│   ├── DMSO_IgG_2.sorted.mapped.bam.bai
+│   ├── DMSO_K27Ac_1_fragmentLen.txt
+│   ├── DMSO_K27Ac_1.Map2GenomeStat.xls
+│   ├── DMSO_K27Ac_1_picard.dupMark.txt
+│   ├── DMSO_K27Ac_1_picard.rmDup.txt
+│   ├── DMSO_K27Ac_1.sorted.mapped.bam
+│   ├── DMSO_K27Ac_1.sorted.mapped.bam.bai
+│   ├── DMSO_K27Ac_2_fragmentLen.txt
+│   ├── DMSO_K27Ac_2.Map2GenomeStat.xls
+│   ├── DMSO_K27Ac_2_picard.dupMark.txt
+│   ├── DMSO_K27Ac_2_picard.rmDup.txt
+│   ├── DMSO_K27Ac_2.sorted.mapped.bam
+│   ├── DMSO_K27Ac_2.sorted.mapped.bam.bai
+│   ├── M60_HDAC1_1_fragmentLen.txt
+│   ├── M60_HDAC1_1.Map2GenomeStat.xls
+│   ├── M60_HDAC1_1_picard.dupMark.txt
+│   ├── M60_HDAC1_1_picard.rmDup.txt
+│   ├── M60_HDAC1_1.sorted.mapped.bam
+│   ├── M60_HDAC1_1.sorted.mapped.bam.bai
+│   ├── M60_HDAC1_2_fragmentLen.txt
+│   ├── M60_HDAC1_2.Map2GenomeStat.xls
+│   ├── M60_HDAC1_2_picard.dupMark.txt
+│   ├── M60_HDAC1_2_picard.rmDup.txt
+│   ├── M60_HDAC1_2.sorted.mapped.bam
+│   ├── M60_HDAC1_2.sorted.mapped.bam.bai
+│   ├── M60_HDAC2_1_fragmentLen.txt
+│   ├── M60_HDAC2_1.Map2GenomeStat.xls
+│   ├── M60_HDAC2_1_picard.dupMark.txt
+│   ├── M60_HDAC2_1_picard.rmDup.txt
+│   ├── M60_HDAC2_1.sorted.mapped.bam
+│   ├── M60_HDAC2_1.sorted.mapped.bam.bai
+│   ├── M60_HDAC2_2_fragmentLen.txt
+│   ├── M60_HDAC2_2.Map2GenomeStat.xls
+│   ├── M60_HDAC2_2_picard.dupMark.txt
+│   ├── M60_HDAC2_2_picard.rmDup.txt
+│   ├── M60_HDAC2_2.sorted.mapped.bam
+│   ├── M60_HDAC2_2.sorted.mapped.bam.bai
+│   ├── M60_IgG_1_fragmentLen.txt
+│   ├── M60_IgG_1.Map2GenomeStat.xls
+│   ├── M60_IgG_1_picard.dupMark.txt
+│   ├── M60_IgG_1_picard.rmDup.txt
+│   ├── M60_IgG_1.sorted.mapped.bam
+│   ├── M60_IgG_1.sorted.mapped.bam.bai
+│   ├── M60_IgG_2_fragmentLen.txt
+│   ├── M60_IgG_2.Map2GenomeStat.xls
+│   ├── M60_IgG_2_picard.dupMark.txt
+│   ├── M60_IgG_2_picard.rmDup.txt
+│   ├── M60_IgG_2.sorted.mapped.bam
+│   ├── M60_IgG_2.sorted.mapped.bam.bai
+│   ├── M60_K27Ac_1_fragmentLen.txt
+│   ├── M60_K27Ac_1.Map2GenomeStat.xls
+│   ├── M60_K27Ac_1_picard.dupMark.txt
+│   ├── M60_K27Ac_1_picard.rmDup.txt
+│   ├── M60_K27Ac_1.sorted.mapped.bam
+│   ├── M60_K27Ac_1.sorted.mapped.bam.bai
+│   ├── M60_K27Ac_2_fragmentLen.txt
+│   ├── M60_K27Ac_2.Map2GenomeStat.xls
+│   ├── M60_K27Ac_2_picard.dupMark.txt
+│   ├── M60_K27Ac_2_picard.rmDup.txt
+│   ├── M60_K27Ac_2.sorted.mapped.bam
+│   └── M60_K27Ac_2.sorted.mapped.bam.bai
+├── bed
+│   ├── DMSO_HDAC1_1.fragmentsCount.bin500.bed
+│   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph
+│   ├── DMSO_HDAC1_2.fragmentsCount.bin500.bed
+│   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph
+│   ├── DMSO_HDAC2_1.fragmentsCount.bin500.bed
+│   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph
+│   ├── DMSO_HDAC2_2.fragmentsCount.bin500.bed
+│   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph
+│   ├── DMSO_IgG_1.fragmentsCount.bin500.bed
+│   ├── DMSO_IgG_1.fragments.normalized.bedgraph
+│   ├── DMSO_IgG_2.fragmentsCount.bin500.bed
+│   ├── DMSO_IgG_2.fragments.normalized.bedgraph
+│   ├── DMSO_K27Ac_1.fragmentsCount.bin500.bed
+│   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph
+│   ├── DMSO_K27Ac_2.fragmentsCount.bin500.bed
+│   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph
+│   ├── M60_HDAC1_1.fragmentsCount.bin500.bed
+│   ├── M60_HDAC1_1.fragments.normalized.bedgraph
+│   ├── M60_HDAC1_2.fragmentsCount.bin500.bed
+│   ├── M60_HDAC1_2.fragments.normalized.bedgraph
+│   ├── M60_HDAC2_1.fragmentsCount.bin500.bed
+│   ├── M60_HDAC2_1.fragments.normalized.bedgraph
+│   ├── M60_HDAC2_2.fragmentsCount.bin500.bed
+│   ├── M60_HDAC2_2.fragments.normalized.bedgraph
+│   ├── M60_IgG_1.fragmentsCount.bin500.bed
+│   ├── M60_IgG_1.fragments.normalized.bedgraph
+│   ├── M60_IgG_2.fragmentsCount.bin500.bed
+│   ├── M60_IgG_2.fragments.normalized.bedgraph
+│   ├── M60_K27Ac_1.fragmentsCount.bin500.bed
+│   ├── M60_K27Ac_1.fragments.normalized.bedgraph
+│   ├── M60_K27Ac_2.fragmentsCount.bin500.bed
+│   └── M60_K27Ac_2.fragments.normalized.bedgraph
+├── bigwig
+│   ├── bin5
+│   │   ├── DMSO_HDAC1_1.bin5.bigwig
+│   │   ├── DMSO_HDAC1_2.bin5.bigwig
+│   │   ├── DMSO_HDAC2_1.bin5.bigwig
+│   │   ├── DMSO_HDAC2_2.bin5.bigwig
+│   │   ├── DMSO_IgG_1.bin5.bigwig
+│   │   ├── DMSO_IgG_2.bin5.bigwig
+│   │   ├── DMSO_K27Ac_1.bin5.bigwig
+│   │   ├── DMSO_K27Ac_2.bin5.bigwig
+│   │   ├── M60_HDAC1_1.bin5.bigwig
+│   │   ├── M60_HDAC1_2.bin5.bigwig
+│   │   ├── M60_HDAC2_1.bin5.bigwig
+│   │   ├── M60_HDAC2_2.bin5.bigwig
+│   │   ├── M60_IgG_1.bin5.bigwig
+│   │   ├── M60_IgG_2.bin5.bigwig
+│   │   ├── M60_K27Ac_1.bin5.bigwig
+│   │   └── M60_K27Ac_2.bin5.bigwig
+│   ├── DMSO_HDAC1_1.bigwig
+│   ├── DMSO_HDAC1_2.bigwig
+│   ├── DMSO_HDAC2_1.bigwig
+│   ├── DMSO_HDAC2_2.bigwig
+│   ├── DMSO_IgG_1.bigwig
+│   ├── DMSO_IgG_2.bigwig
+│   ├── DMSO_K27Ac_1.bigwig
+│   ├── DMSO_K27Ac_2.bigwig
+│   ├── M60_HDAC1_1.bigwig
+│   ├── M60_HDAC1_2.bigwig
+│   ├── M60_HDAC2_1.bigwig
+│   ├── M60_HDAC2_2.bigwig
+│   ├── M60_IgG_1.bigwig
+│   ├── M60_IgG_2.bigwig
+│   ├── M60_K27Ac_1.bigwig
+│   ├── M60_K27Ac_2.bigwig
+│   └── normalized
+│       ├── DMSO_HDAC1_1.normalized.bw
+│       ├── DMSO_HDAC1_2.normalized.bw
+│       ├── DMSO_HDAC2_1.normalized.bw
+│       ├── DMSO_HDAC2_2.normalized.bw
+│       ├── DMSO_IgG_1.normalized.bw
+│       ├── DMSO_IgG_2.normalized.bw
+│       ├── DMSO_K27Ac_1.normalized.bw
+│       ├── DMSO_K27Ac_2.normalized.bw
+│       ├── M60_HDAC1_1.normalized.bw
+│       ├── M60_HDAC1_2.normalized.bw
+│       ├── M60_HDAC2_1.normalized.bw
+│       ├── M60_HDAC2_2.normalized.bw
+│       ├── M60_IgG_1.normalized.bw
+│       ├── M60_IgG_2.normalized.bw
+│       ├── M60_K27Ac_1.normalized.bw
+│       └── M60_K27Ac_2.normalized.bw
+├── clean_fastq
+│   ├── DMSO_HDAC1_1_1.fq.gz
+│   ├── DMSO_HDAC1_1_2.fq.gz
+│   ├── DMSO_HDAC1_2_1.fq.gz
+│   ├── DMSO_HDAC1_2_2.fq.gz
+│   ├── DMSO_HDAC2_1_1.fq.gz
+│   ├── DMSO_HDAC2_1_2.fq.gz
+│   ├── DMSO_HDAC2_2_1.fq.gz
+│   ├── DMSO_HDAC2_2_2.fq.gz
+│   ├── DMSO_IgG_1_1.fq.gz
+│   ├── DMSO_IgG_1_2.fq.gz
+│   ├── DMSO_IgG_2_1.fq.gz
+│   ├── DMSO_IgG_2_2.fq.gz
+│   ├── DMSO_K27Ac_1_1.fq.gz
+│   ├── DMSO_K27Ac_1_2.fq.gz
+│   ├── DMSO_K27Ac_2_1.fq.gz
+│   ├── DMSO_K27Ac_2_2.fq.gz
+│   ├── M60_HDAC1_1_1.fq.gz
+│   ├── M60_HDAC1_1_2.fq.gz
+│   ├── M60_HDAC1_2_1.fq.gz
+│   ├── M60_HDAC1_2_2.fq.gz
+│   ├── M60_HDAC2_1_1.fq.gz
+│   ├── M60_HDAC2_1_2.fq.gz
+│   ├── M60_HDAC2_2_1.fq.gz
+│   ├── M60_HDAC2_2_2.fq.gz
+│   ├── M60_IgG_1_1.fq.gz
+│   ├── M60_IgG_1_2.fq.gz
+│   ├── M60_IgG_2_1.fq.gz
+│   ├── M60_IgG_2_2.fq.gz
+│   ├── M60_K27Ac_1_1.fq.gz
+│   ├── M60_K27Ac_1_2.fq.gz
+│   ├── M60_K27Ac_2_1.fq.gz
+│   └── M60_K27Ac_2_2.fq.gz
+├── Cut&Run QC.ipynb
+├── deeptools_heatmap
+│   ├── HDAC1.AbSC.heatmap.png
+│   ├── HDAC1.AbSC.matrix.gz
+│   ├── HDAC1.AE.heatmap.png
+│   ├── HDAC1.AE.matrix.gz
+│   ├── HDAC1.ISC.heatmap.png
+│   ├── HDAC1.ISC.matrix.gz
+│   ├── HDAC2.AE.heatmap.png
+│   ├── HDAC2.AE.matrix.gz
+│   ├── HDAC2.ISC.heatmap.png
+│   ├── HDAC2.ISC.matrix.gz
+│   ├── K27Ac.AE.heatmap.png
+│   ├── K27Ac.AE.matrix.gz
+│   ├── K27Ac.ISC.heatmap.png
+│   ├── K27Ac.ISC.matrix.gz
+│   ├── plot_heatmap2.sh
+│   └── plot_heatmap_all.sh
+├── dir.tree.log
+├── Ecoli_bam
+│   ├── DMSO_HDAC1_1.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_HDAC1_1_spikeIn.seqDepth
+│   ├── DMSO_HDAC1_2.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_HDAC1_2_spikeIn.seqDepth
+│   ├── DMSO_HDAC2_1.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_HDAC2_1_spikeIn.seqDepth
+│   ├── DMSO_HDAC2_2.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_HDAC2_2_spikeIn.seqDepth
+│   ├── DMSO_IgG_1.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_IgG_1_spikeIn.seqDepth
+│   ├── DMSO_IgG_2.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_IgG_2_spikeIn.seqDepth
+│   ├── DMSO_K27Ac_1.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_K27Ac_1_spikeIn.seqDepth
+│   ├── DMSO_K27Ac_2.Ecoli.Map2GenomeStat.xls
+│   ├── DMSO_K27Ac_2_spikeIn.seqDepth
+│   ├── M60_HDAC1_1.Ecoli.Map2GenomeStat.xls
+│   ├── M60_HDAC1_1_spikeIn.seqDepth
+│   ├── M60_HDAC1_2.Ecoli.Map2GenomeStat.xls
+│   ├── M60_HDAC1_2_spikeIn.seqDepth
+│   ├── M60_HDAC2_1.Ecoli.Map2GenomeStat.xls
+│   ├── M60_HDAC2_1_spikeIn.seqDepth
+│   ├── M60_HDAC2_2.Ecoli.Map2GenomeStat.xls
+│   ├── M60_HDAC2_2_spikeIn.seqDepth
+│   ├── M60_IgG_1.Ecoli.Map2GenomeStat.xls
+│   ├── M60_IgG_1_spikeIn.seqDepth
+│   ├── M60_IgG_2.Ecoli.Map2GenomeStat.xls
+│   ├── M60_IgG_2_spikeIn.seqDepth
+│   ├── M60_K27Ac_1.Ecoli.Map2GenomeStat.xls
+│   ├── M60_K27Ac_1_spikeIn.seqDepth
+│   ├── M60_K27Ac_2.Ecoli.Map2GenomeStat.xls
+│   ├── M60_K27Ac_2_spikeIn.seqDepth
+│   └── ref1.stat
+│       ├── DMSO_HDAC1_1.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_HDAC1_2.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_HDAC2_1.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_HDAC2_2.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_IgG_1.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_IgG_2.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_K27Ac_1.Ecoli.Map2GenomeStat.xls
+│       ├── DMSO_K27Ac_2.Ecoli.Map2GenomeStat.xls
+│       ├── M60_HDAC1_1.Ecoli.Map2GenomeStat.xls
+│       ├── M60_HDAC1_2.Ecoli.Map2GenomeStat.xls
+│       ├── M60_HDAC2_1.Ecoli.Map2GenomeStat.xls
+│       ├── M60_HDAC2_2.Ecoli.Map2GenomeStat.xls
+│       ├── M60_IgG_1.Ecoli.Map2GenomeStat.xls
+│       ├── M60_IgG_2.Ecoli.Map2GenomeStat.xls
+│       ├── M60_K27Ac_1.Ecoli.Map2GenomeStat.xls
+│       └── M60_K27Ac_2.Ecoli.Map2GenomeStat.xls
+├── fastq
+│   ├── D_G1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_G1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_G2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_G2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── D_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── D_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_G1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_G1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_G2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_G2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   ├── M_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+│   ├── M_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_1.fastq.gz
+│   └── M_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_2.fastq.gz
+├── fastqc_report
+│   ├── D_G1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_G1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_G1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_G1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_G2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_G2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_G2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_G2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── D_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── D_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── D_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── D_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_G1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_G1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_G1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_G1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_G2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_G2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_G2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_G2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_H1_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_H1_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_H2_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_H2_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   ├── M_K27Ac_1_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+│   ├── M_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.html
+│   ├── M_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_1_fastqc.zip
+│   ├── M_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.html
+│   └── M_K27Ac_2_CKDL220025889-1A_HCY2GDSX5_L1_2_fastqc.zip
+├── gene_signatures_bed
+│   ├── AbSC.HDAC1.peaks.bed
+│   ├── AbSC.HDAC2.peaks.bed
+│   ├── AbSC.K27Ac.peaks.bed
+│   ├── AE.HDAC1.peaks.bed
+│   ├── AE.HDAC2.peaks.bed
+│   ├── AE.K27Ac.peaks.bed
+│   ├── ISC.HDAC1.peaks.bed
+│   ├── ISC.HDAC2.peaks.bed
+│   ├── ISC.K27Ac.peaks.bed
+│   ├── Mustata.HDAC1.peaks.bed
+│   ├── Mustata.HDAC2.peaks.bed
+│   ├── Mustata.K27Ac.peaks.bed
+│   ├── Nusse.HDAC1.peaks.bed
+│   ├── Nusse.HDAC2.peaks.bed
+│   ├── Nusse.K27Ac.peaks.bed
+│   ├── Vallone.HDAC1.peaks.bed
+│   ├── Vallone.HDAC2.peaks.bed
+│   └── Vallone.K27Ac.peaks.bed
+├── genome.hg38.txt
+├── keyRdata
+│   ├── M60.count.Rdata
+│   └── wt.markers.Rdata
+├── MRK60_meta.csv
+├── peak
+│   ├── HDAC1.narrowPeak
+│   ├── HDAC1.rmBcg.narrowPeak
+│   ├── HDAC2.narrowPeak
+│   ├── HDAC2.rmBcg.narrowPeak
+│   ├── IgG.broadPeak
+│   ├── IgG.narrowPeak
+│   ├── K27Ac.broadPeak
+│   ├── K27Ac.rmBcg.broadPeak
+│   ├── macs3_from_bedgraph
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.broadPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.gappedPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.broadPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.gappedPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.broadPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.gappedPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.broadPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.gappedPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.broadPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.gappedPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.broadPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.gappedPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   └── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   ├── macs3_from_bedgraph_norm
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_peaks.xls
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_no_IgG.peaks_summits.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_peaks.xls
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG1.peaks_summits.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.narrowPeak
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_peaks.xls
+│   │   └── M60_K27Ac_2.fragments.normalized.bedgraph_macs3_with_IgG2.peaks_summits.bed
+│   ├── macs3_IgG_pooled
+│   │   ├── HDAC1_control_lambda.bdg
+│   │   ├── HDAC1_model.r
+│   │   ├── HDAC1_peaks.narrowPeak
+│   │   ├── HDAC1_peaks.xls
+│   │   ├── HDAC1_summits.bed
+│   │   ├── HDAC1_treat_pileup.bdg
+│   │   ├── HDAC2_control_lambda.bdg
+│   │   ├── HDAC2_model.r
+│   │   ├── HDAC2_peaks.narrowPeak
+│   │   ├── HDAC2_peaks.xls
+│   │   ├── HDAC2_summits.bed
+│   │   ├── HDAC2_treat_pileup.bdg
+│   │   ├── K27Ac_model.r
+│   │   ├── K27Ac_peaks.broadPeak
+│   │   ├── K27Ac_peaks.gappedPeak
+│   │   └── K27Ac_peaks.xls
+│   ├── macs3_no_ctrl
+│   │   ├── DMSO_HDAC1_1.sorted.mapped.bam_model.r
+│   │   ├── DMSO_HDAC1_1.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_1.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_HDAC1_1.sorted.mapped.bam_summits.bed
+│   │   ├── DMSO_HDAC1_2.sorted.mapped.bam_model.r
+│   │   ├── DMSO_HDAC1_2.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── DMSO_HDAC1_2.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_HDAC1_2.sorted.mapped.bam_summits.bed
+│   │   ├── DMSO_HDAC2_1.sorted.mapped.bam_model.r
+│   │   ├── DMSO_HDAC2_1.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_1.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_HDAC2_1.sorted.mapped.bam_summits.bed
+│   │   ├── DMSO_HDAC2_2.sorted.mapped.bam_model.r
+│   │   ├── DMSO_HDAC2_2.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── DMSO_HDAC2_2.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_HDAC2_2.sorted.mapped.bam_summits.bed
+│   │   ├── DMSO_IgG_1.sorted.mapped.bam_model.r
+│   │   ├── DMSO_IgG_1.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── DMSO_IgG_1.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── DMSO_IgG_1.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── DMSO_IgG_1.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_IgG_1.sorted.mapped.bam_summits.bed
+│   │   ├── DMSO_IgG_2.sorted.mapped.bam_model.r
+│   │   ├── DMSO_IgG_2.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── DMSO_IgG_2.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── DMSO_IgG_2.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── DMSO_IgG_2.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_IgG_2.sorted.mapped.bam_summits.bed
+│   │   ├── DMSO_K27Ac_1.sorted.mapped.bam_model.r
+│   │   ├── DMSO_K27Ac_1.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_1.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_1.sorted.mapped.bam_peaks.xls
+│   │   ├── DMSO_K27Ac_2.sorted.mapped.bam_model.r
+│   │   ├── DMSO_K27Ac_2.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── DMSO_K27Ac_2.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── DMSO_K27Ac_2.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_HDAC1_1.sorted.mapped.bam_model.r
+│   │   ├── M60_HDAC1_1.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── M60_HDAC1_1.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_HDAC1_1.sorted.mapped.bam_summits.bed
+│   │   ├── M60_HDAC1_2.sorted.mapped.bam_model.r
+│   │   ├── M60_HDAC1_2.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── M60_HDAC1_2.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_HDAC1_2.sorted.mapped.bam_summits.bed
+│   │   ├── M60_HDAC2_1.sorted.mapped.bam_model.r
+│   │   ├── M60_HDAC2_1.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── M60_HDAC2_1.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_HDAC2_1.sorted.mapped.bam_summits.bed
+│   │   ├── M60_HDAC2_2.sorted.mapped.bam_model.r
+│   │   ├── M60_HDAC2_2.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── M60_HDAC2_2.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_HDAC2_2.sorted.mapped.bam_summits.bed
+│   │   ├── M60_IgG_1.sorted.mapped.bam_model.r
+│   │   ├── M60_IgG_1.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── M60_IgG_1.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── M60_IgG_1.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── M60_IgG_1.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_IgG_1.sorted.mapped.bam_summits.bed
+│   │   ├── M60_IgG_2.sorted.mapped.bam_model.r
+│   │   ├── M60_IgG_2.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── M60_IgG_2.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── M60_IgG_2.sorted.mapped.bam_peaks.narrowPeak
+│   │   ├── M60_IgG_2.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_IgG_2.sorted.mapped.bam_summits.bed
+│   │   ├── M60_K27Ac_1.sorted.mapped.bam_model.r
+│   │   ├── M60_K27Ac_1.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── M60_K27Ac_1.sorted.mapped.bam_peaks.gappedPeak
+│   │   ├── M60_K27Ac_1.sorted.mapped.bam_peaks.xls
+│   │   ├── M60_K27Ac_2.sorted.mapped.bam_model.r
+│   │   ├── M60_K27Ac_2.sorted.mapped.bam_peaks.broadPeak
+│   │   ├── M60_K27Ac_2.sorted.mapped.bam_peaks.gappedPeak
+│   │   └── M60_K27Ac_2.sorted.mapped.bam_peaks.xls
+│   ├── seacr_top0.01
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   └── M60_K27Ac_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   ├── seacr_top0.01_norm
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   │   └── M60_K27Ac_2.fragments.normalized.bedgraph_seacr_top0.01.peaks.stringent.bed
+│   ├── seacr_with_IgG
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── DMSO_IgG_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── DMSO_IgG_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── M60_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── M60_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── M60_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── M60_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_IgG_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_IgG_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   ├── M60_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   │   ├── M60_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│   │   └── M60_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│   └── seacr_with_IgG_norm
+│       ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── DMSO_IgG_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── DMSO_IgG_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── DMSO_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── M60_HDAC1_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── M60_HDAC1_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── M60_HDAC2_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── M60_HDAC2_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_IgG_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_IgG_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── M60_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       ├── M60_K27Ac_1.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+│       ├── M60_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG1.peaks.stringent.bed
+│       └── M60_K27Ac_2.fragments.normalized.bedgraph_seacr_with_IgG2.peaks.stringent.bed
+├── RNA-seq
+│   └── featureCounts_GRCh38_101_Merck60_RNA-seq.txt
+├── RNA-seq.ipynb
+└── test.sh
+
+23 directories, 902 files

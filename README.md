@@ -68,10 +68,14 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 ```
 
 ## Step 4. Bam to bed. Run `run.2.1.bam.to.frag.bed.sh` [~1 min per sample]
+- This script will transform bam file to fragment file
+- output seqDepth of Ecoli mapping
+- Pls run `HDAC-b2-Cut&Run_in_R.ipynb` to get the scale factor for IgG (if don't scale the noise will be very high in bigwig)
 
 ## Step 5. Normalization library size by spike-in. Run `run.2.2.spikeIn.normalize.bigwig.sh` [~1 min per sample]
+- This script will scale down IgG by spike-in fragment number and generate normalized bigwig file
 
-## Step 6. Peak calling. Run `run.3.peak.calling.sh` [~1 min per sample]
+## Step 6. Peak calling. Run `run.3.peak.calling.sh` [very fast: ~1 min per sample]
 - This script will call peaks using macs3
 
 ## Step 7. Check if all samples have reasonable output and pass QC.
@@ -81,7 +85,7 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 ```
 # integrate all QC information for our samples
 multiqc .
-# keep important log file
+# keep important log files, move to log folder
 mv HDAC.o2599325 HDAC.e2599325 log
 ```
 

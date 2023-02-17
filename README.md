@@ -81,6 +81,8 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 
 ## Step 7. Check if all samples have reasonable output and pass QC.
 - alignment rate for TF, hitone, IgG
+- bigwig file with match peaks (we can filter the peaks based on their score)
+![](peak_check.png)
 
 ## Step 8. Clean or compress intermediate big files. Run `9.clean.big.intermediate.files.sh`
 ```

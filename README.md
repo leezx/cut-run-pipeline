@@ -87,13 +87,17 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 ![](peak_check.png)
 - check peak score ([macs3](https://github.com/macs3-project/MACS/blob/master/docs/callpeak.md)) distributions 
 
-## Step 8. Clean or compress intermediate big files. Run `9.clean.big.intermediate.files.sh`
+## Step 8. Clean or compress intermediate big files.
 ```
 # integrate all QC information for our samples
 multiqc .
 # keep important log files, move to log folder
 mv HDAC.o2599325 HDAC.e2599325 log
 ```
+
+# Downstream quantitative analysis
+DiffBind is good, but too difficult to handle. So, I prefer to use DeSeq2!
+
 
 ## What're the core output file?
 - bam (always too big, we will not keep it)

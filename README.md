@@ -1,6 +1,8 @@
 # Cut&Run pipeline
 A standard analytic pipeline for cut&run data
 
+Cost: $100 per sample (4k for 56 samples)
+
 ## Step 0. ENV and softwares preparation, check by `step.0.env.software.check.sh`.
 ```
 # use most stable python

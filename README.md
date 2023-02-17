@@ -76,12 +76,13 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 - This script will scale down IgG by spike-in fragment number and generate normalized bigwig file
 
 ## Step 6. Peak calling. Run `run.3.peak.calling.sh` [very fast: ~1 min per sample]
-- This script will call peaks using macs3
+- This script will call peaks using macs3, this was tested to be the best peak calling method for cut&run data.
+- `run.3.other.peak.calling.sh`, this scripts contains other 10 methods for peak calling.
 
 ## Step 7. Check if all samples have reasonable output and pass QC.
 - alignment rate for TF, hitone, IgG
 
-## Step 8. Clean intermediate big files. Run `9.clean.big.intermediate.files.sh`
+## Step 8. Clean or compress intermediate big files. Run `9.clean.big.intermediate.files.sh`
 ```
 # integrate all QC information for our samples
 multiqc .

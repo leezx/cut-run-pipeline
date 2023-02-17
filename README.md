@@ -85,6 +85,7 @@ picard=/home/zz950/softwares/self_bin/picard.jar
 - alignment rate for TF, hitone, IgG
 - bigwig file with match peaks (we can filter the peaks based on their score)
 ![](peak_check.png)
+- check peak score ([macs3](https://github.com/macs3-project/MACS/blob/master/docs/callpeak.md)) distributions 
 
 ## Step 8. Clean or compress intermediate big files. Run `9.clean.big.intermediate.files.sh`
 ```
